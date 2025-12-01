@@ -6,7 +6,13 @@ EconomyAPI is a plugin that unifies all economy plugins under one single API. Th
 providing the API, and other plugins using the API (i.e. shop plugins). This allows for all plugins that require an economy
 to work with any economy plugin.
 
+> [!NOTE]
+> EconomyAPI cannot be used alone! It only provides abstract APIs for uniform calls and requires another economy plugin to
+> implement it. You must use an economy plugin that provides the EconomyAPI implementation.
+
 ## Usages
+
+### Use in Gradle
 
 ```kts
 repositories {
@@ -18,83 +24,53 @@ dependencies {
 }
 ```
 
-WIP
+### Use the API
 
-## Install
+```java
+import org.allaymc.economyapi.EconomyAPI;
+import org.allaymc.economyapi.Account;
+import org.allaymc.economyapi.Currency;
+import java.math.BigDecimal;
+import java.util.UUID;
 
-
-- Download .jar file from [release](https://github.com/AllayMC/PlaceholderAPI/releases) or [action](https://github.com/AllayMC/PlaceholderAPI/actions/workflows/gradle.yml)
-
-- Put it into `plugins` folder
-
-- Restart the server, enjoy!
-
-
-## Getting Started
-
-
-1. **Clone this Repository**
-
-
-```bash
-
-git clone https://github.com/AllayMC/JavaPluginTemplate.git
-
+public class Example {
+    public void example() {
+        // Get the api instance
+        EconomyAPI api = EconomyAPI.get();
+        // Create an account
+        UUID uuid = UUID.randomUUID();
+        Account account = api.getOrCreateAccount(uuid);
+        // Get the balance of the account for the default currency
+        Currency currency = api.getDefaultCurrency();
+        BigDecimal balance = account.getBalance(currency);
+        // Convert it to a string
+        String formattedBalance = currency.format(balance);
+        // More...
+    }
+}
 ```
 
-   
-2. **Navigate to the Cloned Directory**
+### Implement the API
 
+```java
+import org.allaymc.api.plugin.Plugin;
+import org.allaymc.economyapi.EconomyAPI;
 
-```bash
-
-cd JavaPluginTemplate
-
+public class MyEconomyAPI extends Plugin implements EconomyAPI {
+    @Override
+    public void onLoad() {
+        // Set the api instance, note that EconomyAPI#API can only be set once
+        EconomyAPI.API.set(this);
+    }
+}
 ```
 
-   
-3. **Change Plugin Information**
+### Available Events
 
-
-- Rename package name from `org.allaymc.javaplugintemplate` to `your.group.name.and.pluginname`
-
-- Update [build.gradle.kts](build.gradle.kts) and [settings.gradle.kts](settings.gradle.kts)
-
-- Reload gradle
-
-   
-4. **Build and Run Your Plugin**
-
-
-```bash
-
-gradlew shadowJar
-
-```
-
-   
-This command will produce a `.jar` file in the `build/libs` directory. 
-
-Copy the `.jar` file to the `plugins` directory of your allay server.
-
-Start the allay server and check the logs to ensure your plugin loads and operates
-
-as expected.
-
-
-5. **Test Your Plugin in Gradle**
-
-
-```bash
-
-gradlew runServer
-
-```
-
-
-This command will start an allay server with your plugin loaded.
-
-Then close allay server by clicking `X` in the dashboard window.
+- [x] AccountCreateEvent: Called when an {@link Account} is created.
+- [x] AccountDeleteEvent: Called when an {@link Account} is deleted.
+- [x] BalanceChangeEvent: Called when a change occurs in the balance of an {@link Account}.
+- [x] BalanceTransferEvent: Called when a balance transfer occurs between two accounts.
 
 ## Requirement
 

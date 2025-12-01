@@ -5,18 +5,25 @@ import org.allaymc.api.plugin.Plugin;
 
 @Slf4j
 public class Entrance extends Plugin {
+
+    public static Entrance instance;
+
+    {
+        instance = this;
+    }
+
     @Override
     public void onLoad() {
-        log.info("EconomyAPI is loaded!");
+        this.pluginLogger.info("EconomyAPI is loaded!");
     }
 
     @Override
     public void onEnable() {
-        log.info("EconomyAPI is enabled!");
+        this.pluginLogger.info("EconomyAPI is enabled!");
     }
 
     @Override
     public void onDisable() {
-        log.info("EconomyAPI is disabled!");
+        this.pluginLogger.info("EconomyAPI is disabled!");
     }
 }

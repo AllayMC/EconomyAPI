@@ -1,6 +1,7 @@
 package org.allaymc.economyapi;
 
 import org.allaymc.api.AllayAPI;
+import org.allaymc.api.utils.TextFormat;
 import org.allaymc.economyapi.event.AccountDeleteEvent;
 
 import java.util.Set;
@@ -27,7 +28,16 @@ public interface EconomyAPI {
      * @return the instance of the economy api implementation.
      */
     static EconomyAPI getAPI() {
-        return API.get();
+        var instance = API.get();
+        if (instance == null) {
+            var logger = Entrance.instance.getPluginLogger();
+            logger.error("{}EconomyAPI implementation is not found! EconomyAPI must be used along with an economy plugin!", TextFormat.RED);
+            logger.error("{}If you are the developer of economy plugin, make sure you have set EconomyAPI#API to your implementation instance.", TextFormat.RED);
+            logger.error("{}If you are the user, please make sure you have installed an economy plugin which implements EconomyAPI.", TextFormat.RED);
+            throw new IllegalStateException("EconomyAPI implementation is not found!");
+        }
+
+        return instance;
     }
 
     /**

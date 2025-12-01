@@ -3,8 +3,8 @@ package org.allaymc.economyapi.event;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.allaymc.api.eventbus.event.CancellableEvent;
-import org.allaymc.economyapi.Currency;
 import org.allaymc.economyapi.Account;
+import org.allaymc.economyapi.Currency;
 
 import java.math.BigDecimal;
 
