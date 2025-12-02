@@ -3,7 +3,7 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 plugins {
     id("java-library")
     id("com.vanniktech.maven.publish") version "0.34.0"
-    id("org.allaymc.gradle.plugin") version "0.1.2"
+    id("org.allaymc.gradle.plugin") version "0.2.0"
 }
 
 group = "org.allaymc"
