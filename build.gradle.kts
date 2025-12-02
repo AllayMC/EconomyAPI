@@ -57,7 +57,7 @@ configure<MavenPublishBaseExtension> {
     publishToMavenCentral()
     signAllPublications()
 
-    coordinates(project.group.toString(), project.name, project.version.toString())
+    coordinates(project.group.toString(), "economy-api", project.version.toString())
 
     pom {
         name.set(project.name)

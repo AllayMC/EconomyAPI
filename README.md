@@ -1,6 +1,6 @@
 # EconomyAPI
 
-![Maven Central Version](https://img.shields.io/maven-central/v/org.allaymc/economyapi?label=economyapi)
+![Maven Central Version](https://img.shields.io/maven-central/v/org.allaymc/EconomyAPI?label=EconomyAPI)
 
 EconomyAPI is a plugin that unifies all economy plugins under one single API. The API can be used by both economy plugins
 providing the API, and other plugins using the API (i.e. shop plugins). This allows for all plugins that require an economy
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(group = "org.allaymc", name = "economyapi", version = "0.1.0")
+    compileOnly(group = "org.allaymc", name = "economy-api", version = "0.1.0")
 }
 ```
 
