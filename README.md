@@ -67,9 +67,9 @@ public class MyEconomyAPI extends Plugin implements EconomyAPI {
 
 ### Available Events
 
-- [x] AccountCreateEvent: Called when an {@link Account} is created.
-- [x] AccountDeleteEvent: Called when an {@link Account} is deleted.
-- [x] BalanceChangeEvent: Called when a change occurs in the balance of an {@link Account}.
+- [x] AccountCreateEvent: Called when an account is created.
+- [x] AccountDeleteEvent: Called when an account is deleted.
+- [x] BalanceChangeEvent: Called when a change occurs in the balance of an account.
 - [x] BalanceTransferEvent: Called when a balance transfer occurs between two accounts.
 
 ## Requirement
