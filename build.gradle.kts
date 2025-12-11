@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.allaymc"
-version = "0.2.0"
+version = "0.2.1-SNAPSHOT"
 description = "EconomyAPI is a plugin that unifies all economy plugins under one single API"
 
 allay {
