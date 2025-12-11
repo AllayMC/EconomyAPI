@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.allaymc"
-version = "0.2.1-SNAPSHOT"
+version = "0.2.1"
 description = "EconomyAPI is a plugin that unifies all economy plugins under one single API"
 
 allay {
@@ -23,7 +23,7 @@ allay {
 
 dependencies {
     compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.34")
-    compileOnly(group = "org.allaymc", name = "papi", version = "0.1.1")
+    compileOnly(group = "org.allaymc", name = "papi", version = "0.1.2")
     annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.34")
 }
 

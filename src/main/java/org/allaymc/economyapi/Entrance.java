@@ -39,7 +39,7 @@ public class Entrance extends Plugin {
             var api = EconomyAPI.getAPI();
             var account = api.getOrCreateAccount(player.getUniqueId());
             Currency currency;
-            if (params == null) {
+            if (params.isBlank()) {
                 currency = api.getDefaultCurrency();
             } else {
                 currency = api.getCurrency(params);
@@ -57,7 +57,7 @@ public class Entrance extends Plugin {
         });
         papi.registerPlaceholder(this, "currency_plural_name", (player, params) -> {
             var api = EconomyAPI.getAPI();
-            if (params == null) {
+            if (params.isBlank()) {
                 return api.getDefaultCurrency().getPluralName();
             } else {
                 var currency = api.getCurrency(params);
@@ -70,7 +70,7 @@ public class Entrance extends Plugin {
         });
         papi.registerPlaceholder(this, "currency_symbol", (player, params) -> {
             var api = EconomyAPI.getAPI();
-            if (params == null) {
+            if (params.isBlank()) {
                 return api.getDefaultCurrency().getSymbol();
             } else {
                 var currency = api.getCurrency(params);
