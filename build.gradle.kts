@@ -7,21 +7,23 @@ plugins {
 }
 
 group = "org.allaymc"
-version = "0.1.1-SNAPSHOT"
+version = "0.2.0"
 description = "EconomyAPI is a plugin that unifies all economy plugins under one single API"
 
 allay {
-    api = "0.17.0"
+    api = "0.18.0"
 
     plugin {
         entrance = "org.allaymc.economyapi.Entrance"
         authors += "daoge_cmd"
         website = "https://github.com/AllayMC/EconomyAPI"
+        dependency("PlaceholderAPI")
     }
 }
 
 dependencies {
     compileOnly(group = "org.projectlombok", name = "lombok", version = "1.18.34")
+    compileOnly(group = "org.allaymc", name = "papi", version = "0.1.1")
     annotationProcessor(group = "org.projectlombok", name = "lombok", version = "1.18.34")
 }
 

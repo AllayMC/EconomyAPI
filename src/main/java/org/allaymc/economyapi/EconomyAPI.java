@@ -49,11 +49,20 @@ public interface EconomyAPI {
     Currency getDefaultCurrency();
 
     /**
+     * Retrieves a {@link Currency} instance corresponding to the given name.
+     *
+     * @param name the name of the currency to retrieve
+     * @return the {@link Currency} instance associated with the specified name,
+     *         or {@code null} if no such currency exists
+     */
+    Currency getCurrency(String name);
+
+    /**
      * Retrieves the set of all currencies supported by the current economy implementation.
      *
      * @return a set of {@link Currency} instances representing all supported currencies
      */
-    Set<Currency> getSupportedCurrencies();
+    Set<Currency> getCurrencies();
 
     /**
      * Checks if an account exists for the given unique identifier.

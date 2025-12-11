@@ -9,6 +9,7 @@ to work with any economy plugin.
 > [!NOTE]
 > EconomyAPI cannot be used alone! It only provides abstract APIs for uniform calls and requires another economy plugin to
 > implement it. You must use an economy plugin that provides the EconomyAPI implementation.
+> EconomyAPI also requires [PlaceholderAPI](https://github.com/AllayMC/PlaceholderAPI) to work.
 
 ## Usages
 
@@ -20,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(group = "org.allaymc", name = "economy-api", version = "0.1.0")
+    compileOnly(group = "org.allaymc", name = "economy-api", version = "0.2.0")
 }
 ```
 
@@ -72,11 +73,14 @@ public class MyEconomyAPI extends Plugin implements EconomyAPI {
 - [x] BalanceChangeEvent: Called when a change occurs in the balance of an account.
 - [x] BalanceTransferEvent: Called when a balance transfer occurs between two accounts.
 
-## Requirement
+### Available Placeholders
 
-Java: 21+
+EconomyAPI provides the following placeholders:
 
-Allay: 0.17.0+
+- [x] `{balance}`/`{balance|<currency_name>}`: balance of a player.
+- [x] `{currency_name}`: name of the default currency.
+- [x] `{currency_plural_name}`/`{currency_plural_name|<currency_name>}`: plural name of the default currency or given currency.
+- [x] `{currency_symbol}`/`{currency_symbol|<currency_name>}`: symbol of the default currency or given currency.
 
 ## Contributing
 
