@@ -11,7 +11,7 @@ version = "0.2.2-SNAPSHOT"
 description = "EconomyAPI is a plugin that unifies all economy plugins under one single API"
 
 allay {
-    api = "0.18.0"
+    api = "0.19.0"
 
     plugin {
         entrance = "org.allaymc.economyapi.Entrance"
